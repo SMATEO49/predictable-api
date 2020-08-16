@@ -1,3 +1,9 @@
+import pandas as pd
+from pycoingecko import CoinGeckoAPI
+from coin_gecko import *
+cg = CoinGeckoAPI()
+
+
 # TODO!
 def predict_prices(currency):
     placeholder_prices = {
@@ -6,3 +12,13 @@ def predict_prices(currency):
         'ripple': {'01-08-2045': 3.1}
     }
     return placeholder_prices[currency]
+
+
+prices = cg.get_price(ids='bitcoin,ethereum,ripple', vs_currencies='usd')
+print(prices)
+
+prices2 = get_single_price('bitcoin', "15-08-2020")
+print(prices2)
+
+prices3 = get_fresh_price('bitcoin')
+print(prices3)
