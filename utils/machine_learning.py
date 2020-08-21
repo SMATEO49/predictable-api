@@ -17,5 +17,5 @@ def predict_prices(currency):
 #prices = cg.get_price(ids='bitcoin,ethereum,ripple', vs_currencies='usd')
 #print(prices)
 
-prices2 = get_single_price('ethereum', "1-9-2015")
+prices2 = get_single_price('bitcoin', "7-8-2020")
 print(prices2)

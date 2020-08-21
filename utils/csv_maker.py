@@ -8,13 +8,13 @@ colnames = ['number', 'date']
 jump = 2
 df = pd.read_csv('../data/days.csv', names=colnames)
 lenght = len(df)
-i = 2069
+i = 3860
 a = [0, 0, 0, 0, 0, 0, 0, 0]
 n = 0           # acumulated values in a
 w = 0           # wroten useful rows(0-7)
 j = 1
 
-with open('../data/ethereum.csv', 'w', newline='') as csvfile:
+with open('../data/ethereum-answers.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(['First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eight'])
     while i < lenght-7:
