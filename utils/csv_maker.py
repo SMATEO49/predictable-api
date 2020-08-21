@@ -8,19 +8,18 @@ colnames = ['number', 'date']
 jump = 2
 df = pd.read_csv('../data/days.csv', names=colnames)
 lenght = len(df)
-i = 1216
+i = 2069
 a = [0, 0, 0, 0, 0, 0, 0, 0]
 n = 0           # acumulated values in a
 w = 0           # wroten useful rows(0-7)
 j = 1
 
-with open('../data/bitcoin.csv', 'w', newline='') as csvfile:
+with open('../data/ethereum.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(['First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eight'])
     while i < lenght-7:
         try:
-            b = get_single_price('bitcoin', df.loc[i, "date"])
-            time.sleep(1)
+            b = get_single_price('ethereum', df.loc[i, "date"])
             try:
                 a[n] = b
                 n = n + 1
@@ -65,13 +64,14 @@ with open('../data/bitcoin.csv', 'w', newline='') as csvfile:
                     a[w] = b
                     w = -1
                     print(j)
-                    if j%42==0:
-                        print('Sleeping :) ZzZ')
-                        time.sleep(59)
                     j += 1
                 w = w+1
 
         except KeyError:
             n = 0
 
+        except:
+            i = i - 1
+            print("Sleeping")
+            time.sleep(60)
         i = i + 1
